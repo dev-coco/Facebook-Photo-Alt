@@ -3,7 +3,7 @@
   "name": "Facebook图片信息",
   "description": "显示Facebook图片信息",
   "author": "dev-coco",
-  "version": "1.0.8",
+  "version": "1.0.9",
   "action": {
     "default_icon": "icon.png"
   },
