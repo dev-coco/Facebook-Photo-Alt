@@ -4,7 +4,7 @@ window.addEventListener('scroll', function () {
 
 function showImgAlt () {
   if (location.href.indexOf('www.facebook.com') > -1) {
-    const posts = document.querySelectorAll('div.nuz1ool1.lq84ybu9.hf30pyar.om3e55n1 > div.s8sjc6am.ekq1a7f9')
+    const posts = document.querySelectorAll('div.xqtp20y.x6ikm8r.x10wlt62.x1n2onr6 > div.x10l6tqk.x13vifvy')
     for (let i = 0; i < posts.length; i++) {
       const setNode = posts[i].parentNode.parentNode.parentNode.parentNode.parentNode
       try {
