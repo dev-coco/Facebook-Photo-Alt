@@ -1,8 +1,8 @@
-window.addEventListener('scroll', function () {
-  showImgAlt()
-})
+window.addEventListener('scroll',showImgAlt)
 
 function showImgAlt () {
+  const css = 'position: absolute; z-index: 1000; background-color: #b7e4f8; color: black; font-size: 0.95rem; padding: 15px; border-radius:5px;margin-top:0px'
+  const format = str => str.match(/(?<=alt=".*?).*?(?=")/g)[0].replace(/(可能是).*(：|文字是)|可能是 |May be an image of (text that says |)|的..$/g, '')
   if (location.href.indexOf('www.facebook.com') > -1) {
     const posts = document.querySelectorAll('div.xqtp20y.x6ikm8r.x10wlt62.x1n2onr6 > div.x10l6tqk.x13vifvy')
     for (let i = 0; i < posts.length; i++) {
@@ -11,14 +11,14 @@ function showImgAlt () {
         setNode.outerHTML.match(/showPictureAlt/g)[0]
       } catch (err) {
         try {
-          const imgAlt = posts[i].outerHTML.match(/(?<=alt=".*?).*?(?=")/g)[0].replace(/(可能是).*(：|文字是)|可能是 |May be an image of (text that says |)|的..$/g, '')
+          const imgAlt = format(posts[i].outerHTML)
           const para = document.createElement('p')
           const node = document.createTextNode(htmlUnescape(imgAlt))
           para.appendChild(node)
           setNode.prepend(para)
           para.setAttribute('id', 'showPictureAlt' + [i])
-          para.setAttribute('onclick', 'navigator.clipboard.writeText(this.outerText)')
-          para.setAttribute('style', 'position: absolute; z-index: 1000; background-color: #b7e4f8; color: black; font-size: 0.95rem; padding: 3px; border-radius:5px;')
+          para.setAttribute('style', css)
+          para.addEventListener('click', e => navigator.clipboard.writeText(e.target.outerText))
         } catch {}
       }
     }
@@ -30,14 +30,14 @@ function showImgAlt () {
         setNode.outerHTML.match(/showPictureAlt/g)[0]
       } catch (err) {
         try {
-          const imgAlt = posts[i].outerHTML.match(/(?<=aria-label=".*?).*?(?=")/g)[0].replace(/(可能是).*(：|文字是)|可能是 |May be an image of (text that says |)|的..$/g, '')
+          const imgAlt = format(posts[i].outerHTML)
           const para = document.createElement('p')
           const node = document.createTextNode(htmlUnescape(imgAlt))
           para.appendChild(node)
           setNode.prepend(para)
           para.setAttribute('id', 'showPictureAlt' + [i])
-          para.setAttribute('onclick', 'navigator.clipboard.writeText(this.outerText);')
-          para.setAttribute('style', 'position: absolute; z-index: 1000; background-color: #b7e4f8; color: black; font-size: 0.95rem; padding: 3px; border-radius:5px;')
+          para.setAttribute('style', css)
+          para.addEventListener('click', e => navigator.clipboard.writeText(e.target.outerText))
         } catch {}
       }
     }

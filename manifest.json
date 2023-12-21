@@ -1,9 +1,9 @@
 {
   "manifest_version": 3,
-  "name": "Facebook图片信息",
-  "description": "显示Facebook图片信息",
-  "author": "dev-coco",
-  "version": "1.1.0",
+  "name": "Facebook 图片信息",
+  "description": "显示 Facebook 图片信息",
+  "author": "Raz1ner",
+  "version": "1.1.1",
   "action": {
     "default_icon": "icon.png"
   },
@@ -12,16 +12,10 @@
   },
   "content_scripts": [
     {
-      "matches": [
-        "*://*.facebook.com/*"
-      ],
-      "js": [
-        "inject.js"
-      ],
+      "matches": ["*://*.facebook.com/*"],
+      "js": ["inject.js"],
       "run_at": "document_end"
     }
   ],
-  "host_permissions": [
-    "*://*.facebook.com/*"
-  ]
+  "host_permissions": ["*://*.facebook.com/*"]
 }
